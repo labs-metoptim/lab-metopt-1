@@ -15,6 +15,10 @@ def gradient_descent(x, lr, expected_ans, points, d, is_print):
     global epoch
     global best_d
     global best_epoch
+    if is_print:    
+        print(Fore.RED + '--------------------------------')
+        print("function is: cos(x) + y**2")
+        print("start point is", x[0], ";", x[1])
     epoch = 0
     lr_start = lr
     while(distance(x, expected_ans) >= EPS):
@@ -23,9 +27,6 @@ def gradient_descent(x, lr, expected_ans, points, d, is_print):
         epoch += 1
         lr = lr * np.exp(-d)
     if is_print:    
-        print(Fore.RED + '--------------------------------')
-        print("function is: cos(x) + b**2")
-        print("start point is", x[0], ";", x[1])
         print("learning rate is", lr_start)
         print("decay parameter is:", d)
         print("found minimum: ", x[0], "; ", x[1],  "\nexpected minimum: ", \
@@ -58,19 +59,19 @@ if __name__ == '__main__':
     print("Learning rate shedule with exponenta")
     print("------------------------------\n")
 
+    gradient_descent([-20, -20], 0.6, \
+    np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.1, True)
+
     #gradient_descent([-20, -20], 0.6, \
-    #np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.1, True)
+    #np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.01, True)
 
-    gradient_descent([-20, -20], 0.6, \
-    np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.01, True)
+    #gradient_descent([-20, -20], 0.6, \
+    #np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.0001, True)
 
-    gradient_descent([-20, -20], 0.6, \
-    np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.0001, True)
+    #gradient_descent([-20, -20], 0.6, \
+    #np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.000001, True)
 
-    gradient_descent([-20, -20], 0.6, \
-    np.array([-7 * np.pi, 0]), np.array([-20, -20]), 0.000001, True)
+    #print("Best decay parameter is:", best_d, "| Best epoch is:", best_epoch)
 
-    print("Best decay parameter is:", best_d, "| Best epoch is:", best_epoch)
-
-    gradient_descent_with_graph([-20, -20], 0.6, \
-    np.array([-7 * np.pi, 0]), 0.000001, False)
+    #gradient_descent_with_graph([-20, -20], 0.6, \
+    #np.array([-7 * np.pi, 0]), 0.000001, False)

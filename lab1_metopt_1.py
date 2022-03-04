@@ -1,3 +1,4 @@
+from re import S
 import numpy as np
 import matplotlib.pyplot as plt
 import colorama
@@ -18,7 +19,7 @@ def gradient_descent(x, lr, expected_ans, points, is_print):
     epoch = 0
     if is_print:
         print(Fore.RED + '--------------------------------')
-        print("function is: cos(x) + b**2")
+        print("function is: cos(x) + y**2")
         print("start point is", x[0], ";", x[1])
     while(distance(x, expected_ans) >= EPS):
         x = x - lr * np.array(grad(x[0], x[1]))
@@ -70,10 +71,8 @@ if __name__ == '__main__':
 
     gradient_descent([-20, -20], 0.99, \
     np.array([-7 * np.pi, 0]), np.array([-20, -20]), True)
-
     gradient_descent([-20, -20], 0.6, \
     np.array([-7 * np.pi, 0]), np.array([-20, -20]), True)
-
     gradient_descent([-20, -20], 0.7, \
     np.array([-7 * np.pi, 0]), np.array([-20, -20]), True)
 

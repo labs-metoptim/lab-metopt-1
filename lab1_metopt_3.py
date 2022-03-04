@@ -3,6 +3,7 @@ from sympy.abc import a, b
 from sympy import cos
 from sympy.utilities.lambdify import lambdify
 EPS = 1e-6
+
 def f(x, y):
     return np.cos(x) + y**2
 
@@ -47,5 +48,5 @@ def gradient_descent(x, expected_ans):
 if __name__ == '__main__':    
     print("Dichotomy method")
     print("--------------------\n")
-    gradient_descent(np.array([-20, -20]), np.array([-9*np.pi, 0.0]))  
+    gradient_descent(np.array([-20, -20]), np.array([-9*np.pi, 0.0])) 
     gradient_descent(np.array([1, 1]), np.array([np.pi, 0.0])) 
